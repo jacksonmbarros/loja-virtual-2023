@@ -1,13 +1,34 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.dev.backend.service;
 
-/**
- *
- * @author jacksonmoraes
- */
+import com.dev.backend.entity.Permissao;
+import com.dev.backend.repository.PermissaoRepository;
+import java.util.Date;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class PermissaoService {
     
+    @Autowired
+    private PermissaoRepository permissaoRepository;
+    
+    public List<Permissao> buscarTodos() {
+        return permissaoRepository.findAll();
+    }
+    
+    public Permissao inserir(Permissao permissao) {
+        permissao.setDataCriacao(new Date());
+        return permissaoRepository.saveAndFlush(permissao);
+    }
+    
+    public Permissao alterar(Permissao permissao) {
+        permissao.setDataAtualizacao(new Date());
+        return permissaoRepository.saveAndFlush(permissao);
+    }
+    
+    public void excluir(Long id) {
+        Permissao permissao = permissaoRepository.findById(id).get();
+        permissaoRepository.delete(permissao);
+    }
 }

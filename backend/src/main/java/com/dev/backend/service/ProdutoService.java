@@ -1,13 +1,35 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.dev.backend.service;
 
-/**
- *
- * @author jacksonmoraes
- */
+import com.dev.backend.entity.Produto;
+import com.dev.backend.repository.ProdutoRepository;
+import java.util.Date;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class ProdutoService {
+    
+    @Autowired
+    private ProdutoRepository produtoRepository;
+    
+    public List<Produto> buscarTodos() {
+        return produtoRepository.findAll();
+    }
+    
+    public Produto inserir(Produto produto) {
+        produto.setDataCriacao(new Date());
+        return produtoRepository.saveAndFlush(produto);
+    }
+    
+    public Produto alterar(Produto produto) {
+        produto.setDataAtualizacao(new Date());
+        return produtoRepository.saveAndFlush(produto);
+    }
+    
+    public void excluir(Long id) {
+        Produto produto = produtoRepository.findById(id).get();
+        produtoRepository.delete(produto);
+    }
     
 }

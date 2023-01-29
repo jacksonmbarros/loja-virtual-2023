@@ -5,16 +5,22 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
 @Entity
 @Table(name = "pessoa")
 @Data
-public class Pessoa {
+public class Pessoa implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -22,8 +28,8 @@ public class Pessoa {
     @Column(name = "cpf")
     private String cpf;
     
-    @Column(name = "e_mail")
-    private String eMail;
+    @Column(name = "email")
+    private String email;
     
     @Column(name = "senha")
     private String senha;
@@ -41,4 +47,9 @@ public class Pessoa {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_atualizacao")
     private Date dataAtualizacao;
+    
+    @ManyToOne
+    @JoinColumn(name="id_cidade")
+    private Cidade cidade;
+    
 }

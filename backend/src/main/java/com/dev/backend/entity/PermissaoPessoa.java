@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.dev.backend.service;
+package com.dev.backend.entity;
 
 /**
  *
  * @author jacksonmoraes
  */
-public class CarrinhoCompraService {
+public class PermissaoPessoa {
     
 }
