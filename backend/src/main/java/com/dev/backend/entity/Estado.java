@@ -1,5 +1,6 @@
 package com.dev.backend.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,13 +19,17 @@ public class Estado {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    @Column(name = "nome")
     private String nome;
     
+    @Column(name = "sigla")
     private String sigla;
     
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_criacao")
     private Date dataCriacao;
     
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_atualizacao")
     private Date dataAtualizacao;
 }
