@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -12,9 +14,9 @@ import java.util.Date;
 import lombok.Data;
 
 @Entity
-@Table(name = "estado")
+@Table(name = "cidade")
 @Data
-public class Estado {
+public class Cidade {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,9 +25,6 @@ public class Estado {
     @Column(name = "nome")
     private String nome;
     
-    @Column(name = "sigla")
-    private String sigla;
-    
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_criacao")
     private Date dataCriacao;
@@ -33,4 +32,9 @@ public class Estado {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_atualizacao")
     private Date dataAtualizacao;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_estado")
+    private Estado estado;
+    
 }

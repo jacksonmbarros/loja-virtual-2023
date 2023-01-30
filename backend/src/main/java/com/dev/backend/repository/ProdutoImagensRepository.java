@@ -1,10 +1,10 @@
 package com.dev.backend.repository;
 
-import com.dev.backend.entity.Estado;
+import com.dev.backend.entity.ProdutoImagens;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface EstadoRepository extends JpaRepository<Estado, Long>{
+public interface ProdutoImagensRepository extends JpaRepository<ProdutoImagens, Long>{
     
 }

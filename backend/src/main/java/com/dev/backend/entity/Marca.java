@@ -12,9 +12,9 @@ import java.util.Date;
 import lombok.Data;
 
 @Entity
-@Table(name = "estado")
+@Table
 @Data
-public class Estado {
+public class Marca {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,9 +22,6 @@ public class Estado {
     
     @Column(name = "nome")
     private String nome;
-    
-    @Column(name = "sigla")
-    private String sigla;
     
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_criacao")
