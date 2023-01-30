@@ -8,16 +8,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
 @Entity
 @Table(name = "estado")
 @Data
-public class Estado implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
+public class Estado {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,17 +26,17 @@ public class PessoaController {
     }
     
     @PostMapping("/")
-    public Pessoa inserir(Pessoa pessoa) {
+    public Pessoa inserir(@RequestBody Pessoa pessoa) {
         return pessoaService.inserir(pessoa);
     }
     
     @PutMapping("/")
-    public Pessoa alterar(Pessoa pessoa) {
+    public Pessoa alterar(@RequestBody Pessoa pessoa) {
         return pessoaService.alterar(pessoa);
     }
     
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> excluir(Long id) {
+    public ResponseEntity<Void> excluir(@RequestBody Long id) {
         pessoaService.excluir(id);
         return ResponseEntity.ok().build();
     }

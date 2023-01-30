@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,19 +27,19 @@ public class ProdutoController {
     }
     
     @PostMapping("/")
-    public Produto inserir(Produto produto) {
+    public Produto inserir(@RequestBody Produto produto) {
         produto.setDataCriacao(new Date());
         return produtoService.inserir(produto);
     }
     
     @PutMapping("/")
-    public Produto alterar(Produto produto) {
+    public Produto alterar(@RequestBody Produto produto) {
         produto.setDataAtualizacao(new Date());
         return produtoService.alterar(produto);
     }
     
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> excluir(Long id) {
+    public ResponseEntity<Void> excluir(@RequestBody Long id) {
         produtoService.excluir(id);
         return ResponseEntity.ok().build();
     }

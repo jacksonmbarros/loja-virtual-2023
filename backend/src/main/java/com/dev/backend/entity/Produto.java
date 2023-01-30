@@ -10,16 +10,13 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
 @Entity
 @Table(name = "produto")
 @Data
-public class Produto implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
+public class Produto {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

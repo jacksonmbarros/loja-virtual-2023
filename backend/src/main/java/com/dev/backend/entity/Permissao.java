@@ -6,16 +6,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
 @Entity
-@Table
+@Table(name = "permissao")
 @Data
-public class Permissao implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
+public class Permissao {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
