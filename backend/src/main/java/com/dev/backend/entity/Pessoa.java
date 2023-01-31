@@ -38,6 +38,13 @@ public class Pessoa {
     @Column(name = "email")
     private String email;
     
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "data_envio_codigo")
+    private Date dataEnvioCodigo;
+    
+    @Column(name = "codigo_recuperacao_senha")
+    private String codigoRecuperacaoSenha;
+    
     @Column(name = "senha")
     private String senha;
     
